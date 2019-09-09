@@ -1,0 +1,10 @@
+<% @todos.each do |todo|%>
+    <p><%= "#{todo.description} / #{todo.completed}"%>
+    <%= link_to "Ver", todo %>
+    <%= link_to "Edit", edit_todo_path(todo) %></p>
+    <%= link_to "Eliminar", todo, method: :delete, data: {confirm: 'Estas seguro?'}%></p>
+    
+
+<% end %>
+
+<%= link_to "Crear", todos_new_path %>
