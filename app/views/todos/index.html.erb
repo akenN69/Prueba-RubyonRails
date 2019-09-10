@@ -1,4 +1,5 @@
-<h1>Index de ToDo</h1>
+</br></br></br>
+<h1>Index ToDo</h1>
 
 <%@todos.each do  |todo| %>
     <div class="card w-75">
@@ -8,7 +9,8 @@
             <%= link_to "Ver", todo, class:"btn btn-primary" %>
             <%= link_to "Edit", edit_todo_path(todo), class:"btn btn-success" %>
             <%= link_to "Eliminar", todo, method: :delete, data: {confirm: 'Estas seguro?'}, class:"btn btn-danger"%>
-            <%= button_to "Completar", completes_path(todo)%>
+            </br></br>
+            <%= button_to "Completar", completes_path(todo), class:"btn btn-warning"%>
             
         </div>
     </div>
