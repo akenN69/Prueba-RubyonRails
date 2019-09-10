@@ -3,7 +3,9 @@ class TodosController < ApplicationController
 
 
     def index 
-        @todos = Todo.all
+        #@todos = Todo.all
+        @completes = Todo.where(completed: true)
+        @nocompletes = Todo.where(completed: false)
     end 
 
     def new
@@ -34,11 +36,16 @@ class TodosController < ApplicationController
     def destroy
         @todo.destroy
         redirect_to todos_path 
-
     end
+
+    
 
     def set_todo
         @todo = Todo.find(params[:id])
+    end
+
+    def list
+        @todos = Todo.all
     end
 
     private
