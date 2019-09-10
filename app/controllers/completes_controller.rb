@@ -4,14 +4,13 @@ class CompletesController < ApplicationController
     def create
         @todo.completed = true
         @todo.save
-        redirect_to todos_path, notice: 'Articulo completado de la lista'
+        redirect_to todos_list_path, notice: 'Articulo completado de la lista'
     end 
 
     def destroy
         @todo.completed = false
         @todo.save
-        #byebug
-        redirect_to todos_path, notice: 'Articulo NO completado de la lista'
+        redirect_to todos_list_path, notice: 'Articulo NO completado de la lista'
     end
 
     private

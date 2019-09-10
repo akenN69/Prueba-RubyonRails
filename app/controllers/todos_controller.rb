@@ -3,9 +3,9 @@ class TodosController < ApplicationController
 
 
     def index 
-        #@todos = Todo.all
-        @completes = Todo.where(completed: true)
-        @nocompletes = Todo.where(completed: false)
+        @todos = Todo.all
+        #@completes = Todo.where(completed: true)
+        #@nocompletes = Todo.where(completed: false)
     end 
 
     def new
@@ -45,7 +45,8 @@ class TodosController < ApplicationController
     end
 
     def list
-        @todos = Todo.all
+        @completes = Todo.where(completed: true)
+        @nocompletes = Todo.where(completed: false)
     end
 
     private

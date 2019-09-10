@@ -1,23 +1,46 @@
 <h1>Index de ToDo</h1>
+<h2>Tareas completadas</h2>
 <% @completes.each do |todo|%>
     <p><%= "#{todo.description} / #{todo.completed}"%></p>
-    <%= link_to "Ver", todo %>
-    <%= link_to "Edit", edit_todo_path(todo) %>
-    <%= link_to "Eliminar", todo, method: :delete, data: {confirm: 'Estas seguro?'}%></p>
-    <%= button_to "Completar", completes_path(todo)%></p>
+    <%= link_to "Ver", todo, class:"btn btn-primary" %>
+    <%= link_to "Edit", edit_todo_path(todo), class:"btn btn-success" %>
+    <%= link_to "Eliminar", todo, method: :delete, data: {confirm: 'Estas seguro?'}, class:"btn btn-danger"%>
+    </br>
+    </br>
+    <%= button_to "Pendiente", completes_path(todo), method: :delete%>
     
 
 <% end %>
 
-<h2>Tareas completadas ToDo</h2>
+<h2>Tareas sin realizar</h2>
 <% @nocompletes.each do |todo|%>
     <p><%= "#{todo.description} / #{todo.completed}"%></p>
-    <%= link_to "Ver", todo %>
-    <%= link_to "Edit", edit_todo_path(todo) %>
-    <%= link_to "Eliminar", todo, method: :delete, data: {confirm: 'Estas seguro?'}%></p>
-    <%= button_to "Pendiente", completes_path(todo), method: :delete%></p>
-    
+    <%= link_to "Ver", todo, class:"btn btn-primary" %>
+    <%= link_to "Edit", edit_todo_path(todo), class:"btn btn-success" %>
+    <%= link_to "Eliminar", todo, method: :delete, data: {confirm: 'Estas seguro?'}, class:"btn btn-danger"%>
+    </br>
+    </br>
+    <%= button_to "Completar", completes_path(todo)%></p>
 
 <% end %>
 </br>
 <%= link_to "Crear ToDo", todos_new_path %>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 text-white bg-warning">
+            <h3>No completados - ToDo</h3>
+            <% @nocompletes.each do |todo| %>
+            <h4 class="card-title tweet_title"><%= "#{todo.description}" %></h4>
+            <% end %>
+        </div>
+        <div class="col-6 text-white bg-success">
+            <h3>Completados ToDo</h3>
+            <% @completes.each do |todo| %>
+            <h4 class="card-title tweet_title"><%= "#{todo.description}" %></h4>
+            <% end %>
+        </div>
+    </div>
+</div>
